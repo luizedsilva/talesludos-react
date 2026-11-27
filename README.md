@@ -17,11 +17,11 @@ eXeLearning online.
 
 [![Vídeo: como criar um jogo no Tales Ludos](public/video/como-criar-um-jogo.jpg)](https://luizedsilva.github.io/talesludos-react/video/como-criar-um-jogo.mp4)
 
-*Clique na imagem para assistir (4min39s).* O vídeo mostra, do início ao fim, a construção do jogo
+*Clique na imagem para assistir (4min35s).* O vídeo mostra, do início ao fim, a construção do jogo
 "Noite estrelada de Van Gogh":
 
-1. **Dados do jogo**: título, apresentação com imagem inserida no texto, a pintura como imagem de fundo e a área de
-   conhecimento;
+1. **Dados do jogo**: título, apresentação com imagem inserida no texto e formatada (tamanho ajustado pela alça e
+   alinhamento ao centro), a pintura como imagem de fundo e a área de conhecimento;
 2. **Mapa**: os quatro locais marcados sobre a pintura;
 3. **Cenas e desafios** de múltipla escolha em cada local (do 2º ao 4º local, em velocidade acelerada);
 4. **Jogando a trilha**: apresentação, cena, desafio e **Verificar**; o personagem caminha até o próximo local; um
