@@ -7,6 +7,8 @@ também pode ser importado no Moodle como pacote SCORM 1.2.
 Esta versão roda **inteiramente no navegador**, sem backend, banco de dados ou cadastro, no mesmo modelo do
 eXeLearning online.
 
+**Acesse:** https://luizedsilva.github.io/talesludos-react/
+
 ## Como usar
 
 - **Meus jogos**: os projetos ficam guardados no navegador (IndexedDB). O editor do mapa grava automaticamente.
