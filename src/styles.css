@@ -1,0 +1,44 @@
+body {
+  background: #fff;
+}
+
+.app-navbar {
+  background-color: #4285f4;
+}
+
+.app-navbar .navbar-brand img {
+  height: 48px;
+}
+
+.icon-btn {
+  min-width: 2.5rem;
+}
+
+.rich-editor .ql-container {
+  min-height: 140px;
+  font-size: 1rem;
+}
+
+.map-canvas {
+  width: 100%;
+  max-width: 900px;
+  touch-action: none;
+  user-select: none;
+}
+
+.map-canvas canvas {
+  display: block;
+}
+
+.challenge-card-header {
+  cursor: pointer;
+}
+
+.home-banner {
+  max-width: 100%;
+  height: auto;
+}
+
+.option-row input[type='text'] {
+  max-width: 28rem;
+}
