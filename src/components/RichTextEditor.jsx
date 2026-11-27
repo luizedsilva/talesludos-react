@@ -1,15 +1,16 @@
 // Editor de texto rico (Quill 1.x, o mesmo usado na versão Vue, para que o
 // HTML gerado continue igual ao que o motor do jogo espera).
-// Imagens podem ser arrastadas para o editor e redimensionadas; elas ficam
-// embutidas no HTML como data: URL.
+// Imagens podem ser arrastadas para o editor e ficam embutidas no HTML como
+// data: URL. Imagens e vídeos podem ser redimensionados e alinhados com o
+// mouse ou com o dedo (ver quillMediaResize.js).
 import { useEffect, useRef } from 'react'
 import Quill from './quillSetup'
 import { ImageDrop } from 'quill-image-drop-module'
-import ImageResize from 'quill-image-resize-vue'
+import MediaResize from './quillMediaResize'
 import 'quill/dist/quill.snow.css'
 
 Quill.register('modules/imageDrop', ImageDrop, true)
-Quill.register('modules/imageResize', ImageResize, true)
+Quill.register('modules/mediaResize', MediaResize, true)
 
 const TOOLBAR = [
   [{ header: [1, 2, 3, false] }],
@@ -32,18 +33,22 @@ export default function RichTextEditor({ value, onChange, placeholder }) {
     const host = hostRef.current
     const el = document.createElement('div')
     host.appendChild(el)
-    const quill = new Quill(el, {
-      theme: 'snow',
-      placeholder,
-      modules: { toolbar: TOOLBAR, imageDrop: true, imageResize: {} }
-    })
-    quill.root.innerHTML = value || ''
-    quill.on('text-change', () => {
+    let quill = null
+    const emit = () => {
+      if (!quill) return
       const html = quill.root.innerHTML
       onChangeRef.current(html === '<p><br></p>' ? '' : html)
+    }
+    quill = new Quill(el, {
+      theme: 'snow',
+      placeholder,
+      modules: { toolbar: TOOLBAR, imageDrop: true, mediaResize: { onChange: emit } }
     })
+    quill.root.innerHTML = value || ''
+    quill.on('text-change', emit)
     quillRef.current = quill
     return () => {
+      quill.getModule('mediaResize').destroy()
       quillRef.current = null
       host.innerHTML = ''
     }

@@ -680,3 +680,104 @@ code {
     padding: 3.25rem 0;
   }
 }
+
+/* Formatação de imagens e vídeos no editor (quillMediaResize.js).
+   Alvos grandes para funcionar bem com o dedo. */
+.rich-editor .ql-editor img,
+.rich-editor .ql-editor iframe.ql-video {
+  cursor: pointer;
+  max-width: 100%;
+}
+
+/* O toque num vídeo deve selecioná-lo, e não ir para dentro do player. */
+.rich-editor .ql-editor iframe.ql-video {
+  pointer-events: none;
+}
+
+.ql-media-overlay {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px dashed var(--tl-roxo, #6f42c1);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.ql-media-handle {
+  position: absolute;
+  right: -14px;
+  bottom: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--tl-roxo, #6f42c1);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.3);
+  cursor: nwse-resize;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.ql-media-overlay.is-right .ql-media-handle {
+  right: auto;
+  left: -14px;
+  cursor: nesw-resize;
+}
+
+.ql-media-size {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgb(0 0 0 / 0.6);
+  color: #fff;
+  font: 12px/1.2 system-ui, sans-serif;
+}
+
+.ql-media-toolbar {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.25);
+  pointer-events: auto;
+}
+
+.ql-media-toolbar button {
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  touch-action: manipulation;
+}
+
+.ql-media-toolbar button.active {
+  background: var(--tl-roxo, #6f42c1);
+  border-color: var(--tl-roxo, #6f42c1);
+}
+
+.ql-media-toolbar svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #444;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ql-media-toolbar button.active svg {
+  stroke: #fff;
+}
+
+.ql-media-toolbar button[data-action='remove'] svg {
+  stroke: #c0392b;
+}
