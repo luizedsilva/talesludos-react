@@ -19,7 +19,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main className="container-fluid px-3 pb-4">
+      <main className="app-main container-fluid px-3">
         <Routes>
           <Route path="/jogos" element={<GameList />} />
           {/* id = "novo" para criar um jogo */}

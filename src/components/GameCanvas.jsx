@@ -67,8 +67,8 @@ export default function GameCanvas({ imageUrl, marks, missing, mode, selected, o
           const p = pos(i)
           sk.strokeWeight(3)
           sk.stroke(miss.includes(i) ? sk.color(220, 53, 69) : 255)
-          if (i === sel) sk.fill(170, 102, 204)
-          else sk.fill(66, 133, 244)
+          if (i === sel) sk.fill(229, 113, 69) // laranja da marca: marca selecionada
+          else sk.fill(90, 58, 186) // roxo da marca
           sk.ellipse(p.x, p.y, DIAMETER)
           sk.noStroke()
           sk.fill(255)
