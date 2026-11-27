@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Visualização - TalesLudos</title>
-  <script src="js/p5.js"></script>
-  <script src="js/p5.dom.min.js"></script>
-  <script src="js/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <style>
-    #preview-msg { font-family: sans-serif; padding: 2rem; color: #333; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualização - Tales Ludos</title>
+  <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/jogo.css">
 </head>
 <body>
-  <span style="display:none;"><img src="media/marca.png" id="marca"></span>
-  <span style="display:none;"><img src="media/walk.png" id="walk"></span>
-  <span style="display:none;"><img src="media/idle.png" id="idle"></span>
-  <span style="display:none;"><img src="media/tablet.png" id="fundo"></span>
-  <span style="display:none;"><img id="mapa"></span>
-  <div id="preview-msg">Carregando o jogo...</div>
+  <img id="mapa" alt="" hidden>
+  <p id="preview-msg" class="tl-mensagem">Carregando o jogo...</p>
 
   <!--
     Visualização local de um projeto do editor. O projeto é lido do IndexedDB
     (mesmo banco usado em src/storage/db.js) e o motor do jogo é carregado
     depois que a variável global "game" e a imagem do mapa estão prontas.
+    Sem js/scorm.js: a visualização não fala com nenhum LMS.
   -->
   <script>
     (function () {
@@ -86,12 +79,8 @@
           img.src = URL.createObjectURL(project.image);
         });
       }).then(function () {
-        return ['config/digitos.js', 'js/scenario.js', 'js/particula.js', 'js/sketch.js', 'js/confetti.js']
-          .reduce(function (p, src) { return p.then(function () { return loadScript(src); }); }, Promise.resolve());
-      }).then(function () {
         msg.remove();
-        // Se o evento "load" já passou, o p5 não se inicializa sozinho.
-        if (document.readyState === 'complete' && !p5.instance) new p5();
+        return loadScript('js/jogo.js');
       }).catch(function (err) {
         fail(err.message || String(err));
       });

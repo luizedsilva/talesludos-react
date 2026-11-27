@@ -15,9 +15,9 @@ const STEPS = [
 const FEATURES = [
   { icon: 'bi-person-check', title: 'Sem cadastro', text: 'Abra e comece a criar. Não há login, senha ou conta.' },
   { icon: 'bi-hdd', title: 'Salvo no seu computador', text: 'Os jogos ficam no navegador e podem ser salvos em arquivo .tlud.' },
-  { icon: 'bi-mortarboard', title: 'Compatível com o Moodle', text: 'O jogo exportado é um pacote SCORM 1.2, pronto para o AVA.' },
+  { icon: 'bi-mortarboard', title: 'Nota no Moodle', text: 'O jogo exportado é um pacote SCORM 1.2 que envia a nota do aluno ao AVA.' },
   { icon: 'bi-phone', title: 'Roda em qualquer lugar', text: 'HTML5 e JavaScript: computadores, tablets e smartphones.' },
-  { icon: 'bi-ui-checks', title: 'Cinco tipos de desafio', text: 'Verdadeiro ou falso, múltipla escolha, lacuna, associação e resposta curta.' },
+  { icon: 'bi-signpost-split', title: 'Trilha com vidas', text: 'Os locais viram uma trilha: acerte o desafio para avançar, sem perder todas as vidas.' },
   { icon: 'bi-github', title: 'Gratuito e aberto', text: 'Desenvolvido na UNIFAL-MG, com o código disponível no GitHub.' }
 ]
 

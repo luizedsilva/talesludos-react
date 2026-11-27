@@ -5,8 +5,8 @@
 # Tales Ludos (React)
 
 Ferramenta de autoria de jogos educacionais baseados em um mapa: o autor escolhe uma imagem de fundo, marca locais
-nela e define, para cada local, uma cena (conteúdo) e um desafio. O jogo gerado é um site estático em p5.js que
-também pode ser importado no Moodle como pacote SCORM 1.2.
+nela e define, para cada local, uma cena (conteúdo) e um desafio. No jogo gerado, os locais viram uma **trilha**
+sobre a imagem: o jogador conclui um local por vez, com vidas, e a nota final pode ir para o Moodle (pacote SCORM 1.2).
 
 Esta versão roda **inteiramente no navegador**, sem backend, banco de dados ou cadastro, no mesmo modelo do
 eXeLearning online.
@@ -100,7 +100,7 @@ faz as rotas `/jogos/...` funcionarem ao recarregar a página.
 ## Estrutura
 
 ```
-public/game/          motor do jogo (p5.js) copiado para cada jogo exportado; preview.html para visualizar
+public/game/          motor do jogo (trilha) copiado para cada jogo exportado; preview.html para visualizar
 public/images/        imagens da interface
 public/images/marca/  logos, ícones e composições da identidade visual
 public/video/         vídeo tutorial da página inicial e sua capa
@@ -115,11 +115,42 @@ src/pages/            telas: página inicial (Home.jsx), lista, dados do jogo, d
 src/styles.css        tema da marca (variáveis --tl-*), estilos do editor e da página inicial (classes .landing-*)
 ```
 
+### Motor do jogo (trilha)
+
+O jogo exportado (e a visualização do editor) usa o motor em [public/game/](public/game/), em HTML, CSS e JavaScript
+puros, sem dependências, com a identidade visual da marca:
+
+- **Trilha sobre o mapa**: os locais ficam onde o autor os marcou na imagem e viram nós da trilha: concluído (✓),
+  atual (laranja, pulsando, com o balão "Começar") e bloqueado (cadeado). O caminho já percorrido fica laranja e o
+  personagem caminha até o próximo local a cada acerto.
+- **Lição por local**: a cena e depois o desafio, em tela cheia, com barra de progresso, botão **Verificar** e uma
+  faixa de resultado (roxa no acerto, laranja no erro). Locais sem cena vão direto ao desafio.
+- **Vidas**: 3 corações. Cada erro custa uma vida; o jogador pode **Rever a cena** ou **Tentar de novo**. Sem vidas,
+  ele relê a cena e recebe vidas novas. Em lacunas e associações, as respostas certas ficam travadas.
+- **Nota**: `100 × (1 − erros / locais)`, no mínimo 0, como nas versões anteriores.
+- **SCORM 1.2** ([js/scorm.js](public/game/js/scorm.js)): dentro do Moodle, o jogo envia `cmi.core.score.raw` (0 a
+  100) e `lesson_status = completed` ao terminar, e guarda o progresso em `cmi.suspend_data` para o aluno continuar
+  de onde parou. Fora de um LMS, nada é enviado.
+- **Responsivo e acessível**: funciona no celular, com teclado (Enter verifica, Esc volta à trilha) e leitores de
+  tela; respeita "reduzir movimento".
+
+```
+public/game/js/jogo.js       motor (trilha, lições, vidas, fim de jogo)
+public/game/js/scorm.js      comunicação com o LMS (SCORM 1.2)
+public/game/css/jogo.css     estilos com as cores da marca
+public/game/font/            Inter (woff2) e sua licença OFL, para funcionar offline
+public/game/media/           símbolo da marca e sprites do personagem
+public/game/index.html       jogo de exemplo ("Descobrimento do Brasil")
+public/game/preview.html     visualização do editor (lê o projeto do IndexedDB)
+```
+
 ### Formato do jogo
 
-O motor do jogo (`public/game/js`) espera, em `config/game.js`, um objeto `game` com `title`, `introduce`,
+O motor espera, em `config/game.js`, um objeto `game` com `title`, `introduce`,
 `marks.coords` (frações 0..1 da área do mapa, que tem proporção 700×500), `links` sequenciais (marca k → k+1) e
 `scenes`/`challenges` ligados à marca pelo `id`. Tipos de desafio: 1 verdadeiro ou falso, 2 múltipla escolha,
 3 preenchimento de lacuna (palavras entre `$`), 4 associação, 5 resposta curta.
 
-Os arquivos `.tlud` são compatíveis com os da versão Vue com armazenamento local.
+Os arquivos `.tlud` são compatíveis com os da versão Vue com armazenamento local, e o formato de `config/game.js` é o
+mesmo das versões anteriores: jogos antigos rodam no motor novo (desafios sem `type` são tratados como verdadeiro ou
+falso).

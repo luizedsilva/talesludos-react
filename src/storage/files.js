@@ -10,21 +10,17 @@ export const PROJECT_EXT = '.tlud'
 const PROJECT_FORMAT = 'talesludos-project'
 const PROJECT_FORMAT_VERSION = 1
 
-// Arquivos do motor do jogo, servidos a partir de public/game/.
+// Arquivos do motor do jogo (trilha sobre o mapa), servidos a partir de public/game/.
 const RUNTIME_FILES = [
-  'js/p5.js',
-  'js/p5.dom.min.js',
-  'js/p5.sound.min.js',
-  'js/scenario.js',
-  'js/particula.js',
-  'js/sketch.js',
-  'js/confetti.js',
-  'css/style.css',
-  'config/digitos.js',
-  'media/marca.png',
+  'js/jogo.js',
+  'js/scorm.js',
+  'css/jogo.css',
+  'font/inter.woff2',
+  'font/OFL.txt',
+  'media/tales-ludos.svg',
+  'media/favicon.svg',
   'media/walk.png',
-  'media/idle.png',
-  'media/tablet.png'
+  'media/idle.png'
 ]
 
 function runtimeUrl(path) {
@@ -120,27 +116,19 @@ export function gameScript(project) {
 
 function gameIndexHtml(project, imageFile) {
   return `<!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>${escapeHtml(project.title || 'TalesLudos')}</title>
-  <script src="js/p5.js"></script>
-  <script src="js/p5.dom.min.js"></script>
-  <script src="js/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(project.title || 'Tales Ludos')}</title>
+  <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/jogo.css">
 </head>
 <body>
-  <span style="display:none;"><img src="media/marca.png" id="marca"></span>
-  <span style="display:none;"><img src="media/walk.png" id="walk"></span>
-  <span style="display:none;"><img src="media/idle.png" id="idle"></span>
-  <span style="display:none;"><img src="media/tablet.png" id="fundo"></span>
-  <span style="display:none;"><img src="media/${imageFile}" id="mapa"></span>
+  <img id="mapa" src="media/${imageFile}" alt="" hidden>
   <script src="config/game.js"></script>
-  <script src="config/digitos.js"></script>
-  <script src="js/scenario.js"></script>
-  <script src="js/particula.js"></script>
-  <script src="js/sketch.js"></script>
-  <script src="js/confetti.js"></script>
+  <script src="js/scorm.js"></script>
+  <script src="js/jogo.js"></script>
 </body>
 </html>
 `
