@@ -88,6 +88,12 @@ distorça e respeite a área de preservação ao redor dela.
 - **Editor do mapa**: mostra os locais como a trilha do jogo, com o mesmo pontilhado e os rótulos "Início" e "Fim".
   Os nós ficam roxos quando o local está pronto, cinza com borda vermelha quando ainda falta o desafio e laranja
   quando estão selecionados.
+- **Editor de texto** (apresentação, cenas e desafios): imagens podem ser inseridas pelo botão ou arrastadas para o
+  texto, e vídeos entram pelo botão de vídeo (link do YouTube, por exemplo). Toque ou clique numa imagem ou vídeo
+  para formatá-lo, com mouse ou com o dedo no celular: arraste a alça redonda para mudar o tamanho (o vídeo mantém a
+  proporção) e use a barra que aparece embaixo para alinhar à esquerda, ao centro ou à direita, diminuir, aumentar,
+  ocupar a largura toda ou apagar. No editor, o vídeo não toca (o toque serve para selecioná-lo); no jogo ele toca
+  normalmente.
 - **Salvar projeto em arquivo**: baixa um `.tlud` (zip com `project.json` e a imagem de fundo). Use como cópia de
   segurança ou para continuar em outro computador, com **Abrir projeto**.
 - **Visualizar**: abre o jogo em uma nova aba (`public/game/preview.html`, que lê o projeto do IndexedDB).
@@ -131,6 +137,7 @@ src/storage/          dados, sem dependência de React:
   files.js            arquivo .tlud, pacote .zip do jogo, imsmanifest.xml
   actions.js          salvar arquivo, exportar, visualizar
 src/components/       cabeçalho do editor, canvas do mapa (p5), editor de texto (Quill), editor de cena e desafio
+  quillMediaResize.js módulo do Quill que redimensiona e alinha imagens e vídeos (Pointer Events: mouse e toque)
 src/pages/            telas: página inicial (Home.jsx), lista, dados do jogo, detalhes, editor do mapa
 src/styles.css        tema da marca (variáveis --tl-*), estilos do editor e da página inicial (classes .landing-*)
 ```
