@@ -169,9 +169,21 @@ export default function Home() {
       {/* Vídeo */}
       <section className="landing-section landing-section-alt">
         <Container className="landing-narrow">
-          <h2 className="landing-section-title">Veja o Tales Ludos em ação</h2>
+          <h2 className="landing-section-title">Veja como criar um jogo</h2>
+          <p className="text-center mb-4">
+            Do mapa ao jogo pronto: marcar os locais, criar cenas e desafios, jogar e exportar.
+          </p>
           <Ratio aspectRatio="16x9" className="landing-video">
-            <iframe src="https://www.youtube.com/embed/EWVYXlFXFhE" title="Apresentação do Tales Ludos" allowFullScreen />
+            <video
+              controls
+              preload="none"
+              poster={`${BASE}video/como-criar-um-jogo.jpg`}
+              aria-label="Tutorial: como criar um jogo no Tales Ludos"
+            >
+              <source src={`${BASE}video/como-criar-um-jogo.mp4`} type="video/mp4" />
+              Seu navegador não reproduz vídeos.{' '}
+              <a href={`${BASE}video/como-criar-um-jogo.mp4`}>Baixe o vídeo</a>.
+            </video>
           </Ratio>
         </Container>
       </section>
