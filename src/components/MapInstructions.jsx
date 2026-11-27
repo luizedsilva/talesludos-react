@@ -30,13 +30,13 @@ export default function MapInstructions() {
             Clique no botão <Icon name="plus-circle" /> e depois clique na imagem onde deseja adicionar a marca.
             As marcas são ligadas na ordem em que forem criadas.
           </p>
-          <Image src="/images/instructions/create-mark.gif" alt="Adicionar marca" fluid className="d-block mx-auto my-2" />
+          <Image src={`${import.meta.env.BASE_URL}images/instructions/create-mark.gif`} alt="Adicionar marca" fluid className="d-block mx-auto my-2" />
 
           <h4>Editar marca</h4>
           <p>
             Clique no botão <Icon name="puzzle" /> e depois clique na marca que deseja editar. A marca selecionada fica roxa.
           </p>
-          <Image src="/images/instructions/edit-mark.gif" alt="Editar marca" fluid className="d-block mx-auto my-2" />
+          <Image src={`${import.meta.env.BASE_URL}images/instructions/edit-mark.gif`} alt="Editar marca" fluid className="d-block mx-auto my-2" />
           <p>
             O primeiro editor é para a <b>cena</b>, com o conteúdo relacionado ao desafio. Em seguida escolha o tipo de
             desafio. Há 5 tipos:
@@ -69,12 +69,12 @@ export default function MapInstructions() {
           {touch ? (
             <>
               <p>Clique no botão <Icon name="arrows-move" />, toque na marca e depois na nova posição.</p>
-              <Image src="/images/instructions/move-mark-mobile.gif" alt="Mover marca" fluid className="d-block mx-auto my-2" />
+              <Image src={`${import.meta.env.BASE_URL}images/instructions/move-mark-mobile.gif`} alt="Mover marca" fluid className="d-block mx-auto my-2" />
             </>
           ) : (
             <>
               <p>Clique na marca e arraste-a para a nova posição.</p>
-              <Image src="/images/instructions/move-mark.gif" alt="Mover marca" fluid className="d-block mx-auto my-2" />
+              <Image src={`${import.meta.env.BASE_URL}images/instructions/move-mark.gif`} alt="Mover marca" fluid className="d-block mx-auto my-2" />
             </>
           )}
         </Modal.Body>

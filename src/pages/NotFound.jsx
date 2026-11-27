@@ -7,7 +7,7 @@ export default function NotFound() {
         <Card.Header className="bg-primary text-white">Erro 404</Card.Header>
         <Row className="g-0 align-items-center">
           <Col md={4}>
-            <Card.Img src="/images/404.png" alt="imagem de erro 404" className="rounded-0" />
+            <Card.Img src={`${import.meta.env.BASE_URL}images/404.png`} alt="imagem de erro 404" className="rounded-0" />
           </Col>
           <Col md={8}>
             <Card.Body>

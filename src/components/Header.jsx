@@ -6,7 +6,7 @@ export default function Header() {
     <Navbar expand="lg" variant="dark" className="app-navbar mb-3">
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
-          <img src="/images/logo-150.png" alt="Tales Ludos" />
+          <img src={`${import.meta.env.BASE_URL}images/logo-150.png`} alt="Tales Ludos" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="nav-collapse" />
         <Navbar.Collapse id="nav-collapse">

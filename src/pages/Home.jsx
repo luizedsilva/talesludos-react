@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const HISTORY = [
   {
-    img: '/images/tela1.png',
+    img: `${import.meta.env.BASE_URL}images/tela1.png`,
     title: 'Primeira versão',
     text:
       'Na versão inicial, pensamos na definição do jogo numa única tela. À esquerda estavam as opções de inclusão ' +
@@ -16,7 +16,7 @@ const HISTORY = [
       'dos professores Luiz Eduardo da Silva e Gabriel Gerber Hornink.'
   },
   {
-    img: '/images/sequencia.png',
+    img: `${import.meta.env.BASE_URL}images/sequencia.png`,
     title: 'Segunda versão',
     text:
       'Nesta versão, o autor do jogo registrava-se no ambiente para construir os seus jogos, que ficavam guardados ' +
@@ -25,7 +25,7 @@ const HISTORY = [
       'de fundo e definia a sequência didática de conteúdos e atividades desse percurso.'
   },
   {
-    img: '/images/jogo.png',
+    img: `${import.meta.env.BASE_URL}images/jogo.png`,
     title: 'Versão atual',
     text:
       'Agora a ferramenta funciona inteiramente no navegador, sem cadastro. Os jogos ficam guardados no próprio ' +
@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <div>
-      <img src="/images/banner.png" className="home-banner mb-2" alt="Photo by Waldemar Brandt on Unsplash" />
+      <img src={`${import.meta.env.BASE_URL}images/banner.png`} className="home-banner mb-2" alt="Photo by Waldemar Brandt on Unsplash" />
       <div>
         <Button onClick={() => setOpen(o => !o)} aria-expanded={open}>Histórico</Button>
         <Collapse in={open}>
@@ -75,7 +75,7 @@ export default function Home() {
           usado em diversos sistemas operacionais e dispositivos (computadores, tablets, smartphones).
         </p>
         <Button as={Link} to="/jogos" className="me-2">Criar um jogo</Button>
-        <Button variant="outline-primary" href="/game/index.html" target="_blank">Exemplo de jogo</Button>
+        <Button variant="outline-primary" href={`${import.meta.env.BASE_URL}game/index.html`} target="_blank">Exemplo de jogo</Button>
       </div>
 
       <Ratio aspectRatio="16x9" className="mb-4">
@@ -86,10 +86,10 @@ export default function Home() {
       <h2>Apoio</h2>
       <Row className="align-items-center text-center mb-4">
         <Col>
-          <a href="http://www.capes.gov.br"><img src="/images/capes.jpg" className="img-fluid w-25" alt="Logomarca da CAPES" /></a>
+          <a href="http://www.capes.gov.br"><img src={`${import.meta.env.BASE_URL}images/capes.jpg`} className="img-fluid w-25" alt="Logomarca da CAPES" /></a>
         </Col>
         <Col>
-          <a href="http://www.unifal-mg.edu.br"><img src="/images/unifal.png" className="img-fluid w-75" alt="Logomarca da UNIFAL-MG" /></a>
+          <a href="http://www.unifal-mg.edu.br"><img src={`${import.meta.env.BASE_URL}images/unifal.png`} className="img-fluid w-75" alt="Logomarca da UNIFAL-MG" /></a>
         </Col>
       </Row>
 
@@ -100,7 +100,7 @@ export default function Home() {
           <a href="https://react.dev" className="fs-2 text-decoration-none">React</a>
         </Col>
         <Col>
-          <a href="https://p5js.org"><img src="/images/p5js.png" className="img-fluid w-50" alt="p5.js" /></a>
+          <a href="https://p5js.org"><img src={`${import.meta.env.BASE_URL}images/p5js.png`} className="img-fluid w-50" alt="p5.js" /></a>
         </Col>
       </Row>
     </div>

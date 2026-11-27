@@ -32,6 +32,13 @@ npm run preview  # serve o dist/ localmente
 O resultado de `npm run build` é um site estático. Como o app usa rotas do navegador (`/jogos/...`), o servidor deve
 devolver `index.html` para caminhos desconhecidos.
 
+### GitHub Pages
+
+O workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) publica o site a cada push na `main`
+(ou manualmente em *Actions*). No repositório, em **Settings → Pages**, escolha **Source: GitHub Actions**.
+O subcaminho (`/<repositório>/`) é definido por `BASE_PATH` no build, e o `404.html` (cópia do `index.html`)
+faz as rotas `/jogos/...` funcionarem ao recarregar a página.
+
 ## Estrutura
 
 ```
