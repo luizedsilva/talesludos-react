@@ -163,7 +163,7 @@ export default function Home() {
           <h2 className="landing-section-title">Veja como criar um jogo</h2>
           <p className="landing-section-lead">
             A construção do jogo “Noite estrelada de Van Gogh”: marcar os locais na pintura, criar cenas e
-            desafios, jogar e exportar.
+            desafios, jogar a trilha e exportar.
           </p>
           <Ratio aspectRatio="16x9" className="landing-video">
             <video
