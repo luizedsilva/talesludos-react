@@ -9,6 +9,19 @@ eXeLearning online.
 
 **Acesse:** https://luizedsilva.github.io/talesludos-react/
 
+## Página inicial
+
+A página inicial (`/`) apresenta a ferramenta, no estilo do site do eXeLearning, e tem layout próprio, sem o
+cabeçalho do editor. O editor é aberto pelo botão **TalesLudos online**, que leva a **Meus jogos** (`/jogos`).
+
+A página traz:
+
+- **Destaque** com os botões **TalesLudos online** e **Exemplo de jogo**;
+- **Não é preciso criar conta**: explica que os jogos são salvos localmente, no navegador, sem envio a servidor, e
+  recomenda salvar o `.tlud` como cópia de segurança;
+- **Como funciona** (cenário → locais → cenas e desafios → exportação) e **Por que usar**;
+- vídeo de apresentação, **Histórico** das versões, **Apoio** (CAPES, UNIFAL-MG) e **Desenvolvido com** (React, p5.js).
+
 ## Como usar
 
 - **Meus jogos**: os projetos ficam guardados no navegador (IndexedDB). O editor do mapa grava automaticamente.
@@ -22,7 +35,7 @@ eXeLearning online.
 
 ## Desenvolvimento
 
-Requer Node.js 18 ou superior.
+Requer Node.js 18 ou superior (o deploy usa Node.js 22).
 
 ```bash
 npm install
@@ -52,8 +65,9 @@ src/storage/          dados, sem dependência de React:
   gameModel.js        regras do roteiro (marcas, cenas, desafios, validação)
   files.js            arquivo .tlud, pacote .zip do jogo, imsmanifest.xml
   actions.js          salvar arquivo, exportar, visualizar
-src/components/       cabeçalho, canvas do mapa (p5), editor de texto (Quill), editor de cena e desafio
-src/pages/            telas: início, lista, dados do jogo, detalhes, editor do mapa
+src/components/       cabeçalho do editor, canvas do mapa (p5), editor de texto (Quill), editor de cena e desafio
+src/pages/            telas: página inicial (Home.jsx), lista, dados do jogo, detalhes, editor do mapa
+src/styles.css        estilos do editor e da página inicial (classes .landing-*)
 ```
 
 ### Formato do jogo
