@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/images/marca/logo.svg" alt="Tales Ludos" width="220">
+</p>
+
 # Tales Ludos (React)
 
 Ferramenta de autoria de jogos educacionais baseados em um mapa: o autor escolhe uma imagem de fundo, marca locais
@@ -11,16 +15,55 @@ eXeLearning online.
 
 ## Página inicial
 
-A página inicial (`/`) apresenta a ferramenta, no estilo do site do eXeLearning, e tem layout próprio, sem o
-cabeçalho do editor. O editor é aberto pelo botão **TalesLudos online**, que leva a **Meus jogos** (`/jogos`).
+A página inicial (`/`) apresenta a ferramenta, no estilo do site do eXeLearning, com a
+[identidade visual](#identidade-visual) da marca e layout próprio, sem o cabeçalho do editor. O editor é aberto pelo botão **TalesLudos online**, que leva a **Meus jogos** (`/jogos`).
 
 A página traz:
 
-- **Destaque** com os botões **TalesLudos online** e **Exemplo de jogo**;
+- **Destaque** em roxo, com a composição ilustrativa da marca e os botões **TalesLudos online** e **Exemplo de jogo**;
 - **Não é preciso criar conta**: explica que os jogos são salvos localmente, no navegador, sem envio a servidor, e
   recomenda salvar o `.tlud` como cópia de segurança;
-- **Como funciona** (cenário → locais → cenas e desafios → exportação) e **Por que usar**;
-- vídeo de apresentação, **Histórico** das versões, **Apoio** (CAPES, UNIFAL-MG) e **Desenvolvido com** (React, p5.js).
+- **Como funciona** (cenário → locais → cenas e desafios → exportação), com os ícones da marca;
+- **vídeo tutorial** ([public/video/](public/video/)) com a construção do jogo "Noite estrelada de Van Gogh";
+- **Por que usar**, **Sobre** (o projeto e seus valores: colaboração, acolhimento, disseminação e acessibilidade) e o
+  **Histórico** das versões;
+- **Apoio** (CAPES, UNIFAL-MG) e **Desenvolvido com** (React, p5.js).
+
+## Identidade visual
+
+O layout segue o *Manual de uso da marca* Tales Ludos.
+
+| Cor | Hex | Uso |
+|---|---|---|
+| Roxo (principal) | `#5A3ABA` | cabeçalho, destaque, títulos, botões principais, marcas no mapa |
+| Laranja | `#E57145` | chamadas para ação (**TalesLudos online**, **Visualizar**), marca selecionada no mapa |
+| Cinza | `#E3E3E3` | fundos de seção e botões secundários, no lugar do branco |
+
+- **Tipografia:** Inter (Google Fonts) em todo o site. A Jali Latin aparece apenas na assinatura (logo).
+- **Assinatura (logo):** versão preferencial sobre fundo claro; versão *fundo colorido* (branco e laranja) no
+  cabeçalho roxo do editor; versão em negativo (branca) no rodapé.
+- **Elementos ilustrativos:** ícones em círculo (diálogo, controles, mapa, personagem, digital, temática) e
+  composições de "circuito" em roxo, laranja e cinza.
+- **Contraste:** nos botões laranja o texto é roxo-escuro (`#2C1D63`), pois branco sobre laranja não atinge o
+  contraste mínimo para textos pequenos.
+
+As cores ficam em variáveis CSS (`--tl-roxo`, `--tl-laranja`, `--tl-cinza`…) no início de
+[src/styles.css](src/styles.css), que também ajusta as variáveis do Bootstrap (`--bs-primary` etc.). Os arquivos da
+marca ficam em [public/images/marca/](public/images/marca/):
+
+```
+logo.svg                       assinatura preferencial (roxo e laranja)
+logo-fundo-colorido.svg        sobre fundo roxo (branco e laranja)
+logo-negativo.svg              sobre fundo roxo (toda branca)
+simbolo.svg                    versão reduzida (só o símbolo), base do favicon
+simbolo-fundo-colorido.svg     versão reduzida sobre fundo roxo
+icone-<elemento>-<cor>.webp    ícones ilustrativos (roxo e laranja)
+composicao-<cor>.webp          composições de fundo (roxo, laranja e cinza)
+```
+
+Os SVGs foram extraídos dos PDFs vetoriais do kit; ícones e composições foram reduzidos a partir dos PNGs do kit.
+Ao criar novas peças, siga o manual: não aplique sombras, contornos ou cores fora da paleta na assinatura, não a
+distorça e respeite a área de preservação ao redor dela.
 
 ## Como usar
 
@@ -59,6 +102,8 @@ faz as rotas `/jogos/...` funcionarem ao recarregar a página.
 ```
 public/game/          motor do jogo (p5.js) copiado para cada jogo exportado; preview.html para visualizar
 public/images/        imagens da interface
+public/images/marca/  logos, ícones e composições da identidade visual
+public/video/         vídeo tutorial da página inicial e sua capa
 src/storage/          dados, sem dependência de React:
   db.js               IndexedDB (área de trabalho)
   project.js          modelo do projeto, áreas de conhecimento
@@ -67,7 +112,7 @@ src/storage/          dados, sem dependência de React:
   actions.js          salvar arquivo, exportar, visualizar
 src/components/       cabeçalho do editor, canvas do mapa (p5), editor de texto (Quill), editor de cena e desafio
 src/pages/            telas: página inicial (Home.jsx), lista, dados do jogo, detalhes, editor do mapa
-src/styles.css        estilos do editor e da página inicial (classes .landing-*)
+src/styles.css        tema da marca (variáveis --tl-*), estilos do editor e da página inicial (classes .landing-*)
 ```
 
 ### Formato do jogo
