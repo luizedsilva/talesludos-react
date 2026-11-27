@@ -272,6 +272,44 @@ code {
   border-radius: var(--tl-raio);
 }
 
+/* Legenda da trilha no editor do mapa (cores iguais às do canvas) */
+.trilha-legenda {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.25rem;
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.trilha-legenda > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.trilha-no {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 0 var(--tl-roxo-profundo);
+  background: var(--tl-roxo);
+}
+
+.trilha-no-incompleto {
+  background: var(--tl-cinza);
+  border-color: #dc3545;
+  box-shadow: 0 2px 0 #b9b9b9;
+}
+
+.trilha-no-selecionado {
+  background: var(--tl-laranja);
+  box-shadow: 0 2px 0 #c4532a;
+}
+
 .challenge-card-header {
   cursor: pointer;
 }

@@ -85,6 +85,9 @@ distorça e respeite a área de preservação ao redor dela.
 ## Como usar
 
 - **Meus jogos**: os projetos ficam guardados no navegador (IndexedDB). O editor do mapa grava automaticamente.
+- **Editor do mapa**: mostra os locais como a trilha do jogo, com o mesmo pontilhado e os rótulos "Início" e "Fim".
+  Os nós ficam roxos quando o local está pronto, cinza com borda vermelha quando ainda falta o desafio e laranja
+  quando estão selecionados.
 - **Salvar projeto em arquivo**: baixa um `.tlud` (zip com `project.json` e a imagem de fundo). Use como cópia de
   segurança ou para continuar em outro computador, com **Abrir projeto**.
 - **Visualizar**: abre o jogo em uma nova aba (`public/game/preview.html`, que lê o projeto do IndexedDB).

@@ -230,6 +230,14 @@ export default function MapEditor() {
           onMove={(i, x, y) => changeGame(g => moveMark(g, i, x, y))}
         />
       )}
+      {game.marks.coords.length > 0 && (
+        <div className="trilha-legenda" aria-label="Legenda da trilha">
+          <span><i className="trilha-no trilha-no-pronto" />Local pronto</span>
+          <span><i className="trilha-no trilha-no-incompleto" />Sem desafio</span>
+          <span><i className="trilha-no trilha-no-selecionado" />Selecionado</span>
+          <span className="text-body-secondary">O jogador percorre a trilha na ordem dos números.</span>
+        </div>
+      )}
       {missing.length > 0 && (
         <p className="small text-danger mb-1">
           Marcas com borda vermelha ainda não têm desafio: {missing.map(i => i + 1).join(', ')}.
