@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 
 import Header from './components/Header'
@@ -10,12 +10,17 @@ import MapEditor from './pages/MapEditor'
 import NotFound from './pages/NotFound'
 
 export default function App() {
+  // A página inicial (landing) tem layout próprio, sem o cabeçalho do editor.
+  const { pathname } = useLocation()
+  if (pathname === '/') {
+    return <Home />
+  }
+
   return (
     <>
       <Header />
       <main className="container-fluid px-3 pb-4">
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/jogos" element={<GameList />} />
           {/* id = "novo" para criar um jogo */}
           <Route path="/jogos/:id/dados" element={<GameForm />} />
