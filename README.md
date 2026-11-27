@@ -30,6 +30,26 @@ eXeLearning online.
 
 O vídeo não tem áudio: as explicações aparecem em legendas na tela. Ele também está na página inicial do site.
 
+### Regravar o vídeo
+
+O vídeo é gerado automaticamente por [scripts/video-tutorial/](scripts/video-tutorial/), que reproduz a construção do
+jogo num Chrome headless. Depois de mudar a interface, regrave para o vídeo continuar fiel ao site:
+
+```bash
+npm install
+scripts/video-tutorial/gravar.sh
+```
+
+Requer **ffmpeg** e **Google Chrome** (em outro caminho, use `CHROME=/caminho/do/chrome`). O script faz o build, serve
+o site com `vite preview`, grava a construção do jogo (cerca de 5 minutos) e sobrescreve
+`public/video/como-criar-um-jogo.mp4` e a capa `.jpg`; com `OUT_DIR=/outra/pasta`, grava em outro lugar. No fim, ele
+mostra a duração do vídeo: atualize-a acima.
+
+- [gravar.mjs](scripts/video-tutorial/gravar.mjs): o roteiro (textos do jogo, legendas, cliques e esperas), com
+  `puppeteer-core`. Grava em três partes; a do meio (cenas e desafios dos locais 2 a 4) é acelerada em 3x.
+- [gravar.sh](scripts/video-tutorial/gravar.sh): build, servidor, gravação, junção das partes e o MP4 final.
+- [imagens/](scripts/video-tutorial/imagens/): a pintura (fundo do mapa) e a imagem da apresentação.
+
 ## Página inicial
 
 A página inicial (`/`) apresenta a ferramenta, no estilo do site do eXeLearning, com a
@@ -130,6 +150,7 @@ public/game/          motor do jogo (trilha) copiado para cada jogo exportado; p
 public/images/        imagens da interface
 public/images/marca/  logos, ícones e composições da identidade visual
 public/video/         vídeo tutorial da página inicial e sua capa
+scripts/video-tutorial/  script que grava o vídeo tutorial (ver "Regravar o vídeo")
 src/storage/          dados, sem dependência de React:
   db.js               IndexedDB (área de trabalho)
   project.js          modelo do projeto, áreas de conhecimento
