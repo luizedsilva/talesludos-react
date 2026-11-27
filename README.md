@@ -13,6 +13,23 @@ eXeLearning online.
 
 **Acesse:** https://luizedsilva.github.io/talesludos-react/
 
+## Vídeo tutorial
+
+[![Vídeo: como criar um jogo no Tales Ludos](public/video/como-criar-um-jogo.jpg)](https://luizedsilva.github.io/talesludos-react/video/como-criar-um-jogo.mp4)
+
+*Clique na imagem para assistir (3min51s).* O vídeo mostra, do início ao fim, a construção do jogo
+"Noite estrelada de Van Gogh":
+
+1. **Dados do jogo**: título, apresentação com imagem inserida no texto, a pintura como imagem de fundo e a área de
+   conhecimento;
+2. **Mapa**: os quatro locais marcados sobre a pintura;
+3. **Cenas e desafios** de múltipla escolha em cada local (do 2º ao 4º local, em velocidade acelerada);
+4. **Jogando a trilha**: apresentação, cena, desafio e **Verificar**; o personagem caminha até o próximo local; um
+   erro proposital mostra a perda de uma vida e as opções **Rever a cena** e **Tentar de novo**; no fim, a nota;
+5. **Salvar projeto em arquivo** (`.tlud`) e **Exportar jogo (.zip)** para publicar ou enviar ao Moodle.
+
+O vídeo não tem áudio: as explicações aparecem em legendas na tela. Ele também está na página inicial do site.
+
 ## Página inicial
 
 A página inicial (`/`) apresenta a ferramenta, no estilo do site do eXeLearning, com a
@@ -24,7 +41,7 @@ A página traz:
 - **Não é preciso criar conta**: explica que os jogos são salvos localmente, no navegador, sem envio a servidor, e
   recomenda salvar o `.tlud` como cópia de segurança;
 - **Como funciona** (cenário → locais → cenas e desafios → exportação), com os ícones da marca;
-- **vídeo tutorial** ([public/video/](public/video/)) com a construção do jogo "Noite estrelada de Van Gogh";
+- o [vídeo tutorial](#vídeo-tutorial) com a construção do jogo "Noite estrelada de Van Gogh";
 - **Por que usar**, **Sobre** (o projeto e seus valores: colaboração, acolhimento, disseminação e acessibilidade) e o
   **Histórico** das versões;
 - **Apoio** (CAPES, UNIFAL-MG) e **Desenvolvido com** (React, p5.js).
