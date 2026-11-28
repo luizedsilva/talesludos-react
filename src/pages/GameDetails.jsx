@@ -46,17 +46,19 @@ export default function GameDetails() {
 
   return (
     <div>
-      <h1>{project.title}</h1>
-      <Card body>
-        <div className="d-flex gap-3 align-items-start mb-3">
-          {imageUrl && <img src={imageUrl} style={{ width: 150 }} alt="Imagem do jogo" />}
-          <div>
-            {area && <p className="text-muted">Área: {area.title}</p>}
-            <div dangerouslySetInnerHTML={{ __html: project.description }} />
+      <h1 className="game-details-title">{project.title}</h1>
+      <Card body className="game-details">
+        <div className="game-details-body mb-3">
+          {imageUrl && <img src={imageUrl} className="game-details-image" alt="Imagem do jogo" />}
+          <div className="game-details-text">
+            {area && <p className="text-muted mb-2">Área: {area.title}</p>}
+            <div className="game-description" dangerouslySetInnerHTML={{ __html: project.description }} />
           </div>
         </div>
-        <Button onClick={() => navigate('/jogos')} className="me-2">Voltar</Button>
-        <Button variant="danger" onClick={() => setConfirm(true)}>Excluir</Button>
+        <div className="d-flex gap-2">
+          <Button onClick={() => navigate('/jogos')}>Voltar</Button>
+          <Button variant="danger" onClick={() => setConfirm(true)}>Excluir</Button>
+        </div>
       </Card>
 
       <ConfirmDialog

@@ -781,3 +781,79 @@ code {
 .ql-media-toolbar button[data-action='remove'] svg {
   stroke: #c0392b;
 }
+
+/* ---------- Detalhes do jogo ---------- */
+.game-details-body {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.game-details-image {
+  width: 150px;
+  flex-shrink: 0;
+  border-radius: 6px;
+}
+
+/* min-width: 0 impede que imagens/vídeos da descrição estourem o card. */
+.game-details-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.game-description {
+  display: flow-root; /* contém imagens flutuantes */
+  overflow-wrap: anywhere;
+}
+
+.game-description p {
+  margin-bottom: 0.75rem;
+}
+
+.game-description img,
+.game-description iframe {
+  max-width: 100%;
+}
+
+.game-description img {
+  height: auto;
+}
+
+.game-description iframe {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.game-description .ql-align-center { text-align: center; }
+.game-description .ql-align-right { text-align: right; }
+.game-description .ql-align-justify { text-align: justify; }
+
+@media (max-width: 575.98px) {
+  .game-details-title {
+    font-size: 1.5rem;
+  }
+
+  .game-details > .card-body {
+    padding: 0.75rem;
+  }
+
+  .game-details-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .game-details-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  /* No celular, imagens flutuantes ocupam a linha toda. */
+  .game-description img[style*="float"],
+  .game-description iframe[style*="float"] {
+    float: none !important;
+    display: block;
+    margin: 0.5rem auto !important;
+  }
+}
