@@ -62,6 +62,8 @@ const HISTORY = [
   }
 ]
 
+const MANUAL_URL = 'https://www.pimentacultural.com/livro/manual-tales-ludos/'
+
 const TECH = [
   { href: 'https://react.dev', src: img('react.svg'), label: 'React' },
   { href: 'https://p5js.org', src: img('p5js.png'), label: 'p5.js' }
@@ -79,6 +81,7 @@ export default function Home() {
           <div className="d-flex gap-4 align-items-center">
             <a href="#como-funciona" className="landing-nav-link d-none d-md-inline">Como funciona</a>
             <a href="#sem-cadastro" className="landing-nav-link d-none d-md-inline">Sem cadastro</a>
+            <a href="#manual" className="landing-nav-link d-none d-lg-inline">Manual</a>
             <a href="#sobre" className="landing-nav-link d-none d-lg-inline">Sobre</a>
             <Button as={Link} to="/jogos" size="sm" variant="primary">TalesLudos online</Button>
           </div>
@@ -177,6 +180,20 @@ export default function Home() {
               <a href={`${BASE}video/como-criar-um-jogo.mp4`}>Baixe o vídeo</a>.
             </video>
           </Ratio>
+
+          <div id="manual" className="landing-notice landing-book mt-5">
+            <span className="landing-book-icon" aria-hidden="true"><i className="bi bi-book" /></span>
+            <div>
+              <h2 className="h3">Manual Tales Ludos</h2>
+              <p className="mb-3">
+                Quer ir além do vídeo? O livro <em>Manual Tales Ludos</em>, publicado pela Pimenta Cultural, apresenta a
+                ferramenta e orienta a criação de jogos educacionais passo a passo.
+              </p>
+              <Button href={MANUAL_URL} target="_blank" rel="noopener" variant="primary">
+                <i className="bi bi-box-arrow-up-right me-2" />Acessar o livro
+              </Button>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -286,9 +303,14 @@ export default function Home() {
         <Container className="d-flex flex-wrap justify-content-between align-items-center gap-3">
           <img src={marca('logo-negativo.svg')} alt="Tales Ludos" />
           <span>Um projeto da UNIFAL-MG · gratuito e de código aberto</span>
-          <a href="https://github.com/luizedsilva/talesludos-react" target="_blank" rel="noopener">
-            <i className="bi bi-github me-1" />Código-fonte
-          </a>
+          <div className="d-flex flex-wrap gap-3">
+            <a href={MANUAL_URL} target="_blank" rel="noopener">
+              <i className="bi bi-book me-1" />Manual (livro)
+            </a>
+            <a href="https://github.com/luizedsilva/talesludos-react" target="_blank" rel="noopener">
+              <i className="bi bi-github me-1" />Código-fonte
+            </a>
+          </div>
         </Container>
       </footer>
     </div>

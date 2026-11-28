@@ -478,6 +478,18 @@ code {
   height: 96px;
 }
 
+.landing-book-icon {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--tl-laranja-claro);
+  color: var(--tl-laranja-escuro);
+  font-size: 2.75rem;
+}
+
 .landing-notice h2 {
   color: var(--tl-roxo);
   font-weight: 800;
@@ -671,9 +683,14 @@ code {
     padding: 1.5rem;
   }
 
-  .landing-notice img {
+  .landing-notice img,
+  .landing-book-icon {
     width: 72px;
     height: 72px;
+  }
+
+  .landing-book-icon {
+    font-size: 2rem;
   }
 
   .landing-section {
